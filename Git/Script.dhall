@@ -20,11 +20,11 @@ let requireCleanWorkspaceAfterRunning =
             script
           # ifUncommitedChanges
               [ "set +x"
+              , "echo -e '\n--------------------------------' >&2"
               , "echo 'Uncommitted changes found, please run the following locally and commit the changes:' >&2"
-              , "cat <<<EOF_diff"
+              , "cat >&2 <<EOF_diff"
               , Bash.render (Bash.indent script)
               , ''
-
                 EOF_diff''
               , "exit 1"
               ]
