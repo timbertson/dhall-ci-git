@@ -26,6 +26,7 @@ let requireCleanWorkspaceAfterRunning =
               , "cat >&2 <<EOF_diff"
               , Bash.render (Bash.indent script)
               , ''
+
                 EOF_diff''
               , "exit 1"
               ]
