@@ -4,8 +4,6 @@ let Prelude = ../../dependencies/Prelude.dhall
 
 let Workflow = CI.Workflow
 
-let Expr = Workflow.Expr
-
 let Step = Workflow.Step
 
 let Component = < Major | Minor | Patch >
@@ -39,18 +37,12 @@ let default =
         }
       : Opts
 
-let pushGeneratedTag =
-    -- An explicit `push` step, useful instead of Action.Push when you want to
-    -- perform some action before pushing
+let exportedEnvName =
+    -- this is quite a hack :/
       \(opts : Opts) ->
-        let exportEnv =
-              merge { Some = \(v : Text) -> v, None = "VERSION" } opts.exportEnv
-
-        in      Step.bash
-                  [ "git push origin \"HEAD:refs/tags/v\$${exportEnv}\"" ]
-            //  { name = Some "Push version tag"
-                , `if` = Some "(${Expr.isPush}) && (env.${exportEnv} != '')"
-                }
+        merge
+          { Some = \(v : Text) -> v, None = "ERROR_VERSION_NOT_EXPORTED" }
+          opts.exportEnv
 
 let releaseTriggerToString =
       \(trigger : ReleaseTrigger) ->
@@ -132,6 +124,6 @@ in  { Type = Opts
     , Action
     , VersionScheme
     , VersionTemplate
-    , pushGeneratedTag
+    , exportedEnvName
     , step
     }

@@ -32,6 +32,7 @@ in  { checkout
     , Checkout
     , CleanupAssociatedBranch
     , VersionBump = ./VersionBump.dhall
+    , DerivedCommit = ./DerivedCommit.dhall
     , botCommitterEnv
     , requireCleanWorkspace
     }
