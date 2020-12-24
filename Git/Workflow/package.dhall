@@ -28,7 +28,6 @@ let checkout =
           }
         : Step.Type
 
-
 in  { checkout
     , Checkout
     , CleanupAssociatedBranch
