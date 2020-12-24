@@ -1,4 +1,4 @@
-let CI = ../dependencies/CI.dhall
+let CI = ../../dependencies/CI.dhall
 
 let Workflow = CI.Workflow
 
