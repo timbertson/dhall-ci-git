@@ -7,7 +7,7 @@ in  { files =
           Meta.Files::{
           , readme = Meta.Readme::{
             , repo = "dhall-ci-git"
-            , componentDesc = Some "git"
+            , componentDesc = Some "git support"
             }
           }
     }
