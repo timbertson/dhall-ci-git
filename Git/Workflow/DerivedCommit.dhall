@@ -81,7 +81,7 @@ let publishSteps =
     -}
       \(opts : Options) ->
         let derivedBranchName =
-              Name.apply opts.derivedBranch "\${BRANCH_REF#/refs/heads/}"
+              Name.apply opts.derivedBranch "\${BRANCH_REF#refs/heads/}"
 
         let deployBranchSpec =
               "+\$${derivedCommitVar}:refs/heads/${derivedBranchName}"
@@ -111,7 +111,7 @@ let publishSteps =
                     , env = Some
                         ( toMap
                             { BRANCH_REF =
-                                Workflow.expr "github.base_ref || github.ref"
+                                Workflow.expr "github.head_ref || github.ref"
                             }
                         )
                     }
