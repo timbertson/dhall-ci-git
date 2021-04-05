@@ -1,2 +1,1 @@
-  env:DHALL_CI_OVERRIDE
-? https://raw.githubusercontent.com/timbertson/dhall-ci/f40894891735e84d1e99e541f835272272f388e4/package.dhall sha256:d0b7b3dc23f362d8b9802031fbf353abed6655083a5bffce13668c5800733ecb
+https://raw.githubusercontent.com/timbertson/dhall-ci/f40894891735e84d1e99e541f835272272f388e4/package.dhall sha256:d0b7b3dc23f362d8b9802031fbf353abed6655083a5bffce13668c5800733ecb
