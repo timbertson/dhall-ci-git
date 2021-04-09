@@ -1,1 +1,1 @@
-https://raw.githubusercontent.com/timbertson/dhall-ci/4ea9201bd33567955e4d8e03d51313672de0e24b/Meta/package.dhall sha256:7e566c0dfdf15085fce4154ae077cc3b3485c3382fbf146a012b9f2f612c78ab
+https://raw.githubusercontent.com/timbertson/dhall-ci/880bf68c7e5b1475481b6eca5008269536afdd6c/Meta/package.dhall sha256:14826d3242f0807cb5d9dd5f11c862f48d2545127bc358b8631433c71681fd74
