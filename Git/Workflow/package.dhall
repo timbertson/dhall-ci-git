@@ -14,11 +14,23 @@ let botCommitterEnv = Script.committerEnv Script.githubActionsBot
 
 let CleanupAssociatedBranch = ./CleanupAssociatedBranch.dhall
 
-let Checkout = { Type = { fetchDepth : Natural }, default.fetchDepth = 1 }
+let Checkout =
+      { Type = { fetchDepth : Natural, token : Optional Text }
+      , default = { fetchDepth = 1, token = None Text }
+      }
 
 let toParams =
       \(options : Checkout.Type) ->
-        toMap { fetch-depth = Natural/show options.fetchDepth }
+        let tokenParam =
+              merge
+                { None = [] : List { mapKey : Text, mapValue : Text }
+                , Some =
+                    \(token : Text) ->
+                      [ { mapKey = "token", mapValue = "\${{ ${token} }}" } ]
+                }
+                options.token
+
+        in  toMap { fetch-depth = Natural/show options.fetchDepth } # tokenParam
 
 let checkout =
       \(options : Checkout.Type) ->
