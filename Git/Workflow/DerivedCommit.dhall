@@ -1,14 +1,14 @@
 let CI = ../../dependencies/CI.dhall
 
+let VersionBump = ./VersionBump.dhall
+
+let Script = ../Script.dhall
+
 let Bash = CI.Bash
 
 let Workflow = CI.Workflow
 
 let Step = Workflow.Step
-
-let VersionBump = ./VersionBump.dhall
-
-let Script = ../Script.dhall
 
 let Name =
       { Type = { prefix : Text, suffix : Text }

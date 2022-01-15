@@ -2,6 +2,8 @@ let CI = ../../dependencies/CI.dhall
 
 let Script = ../Script.dhall
 
+let CleanupAssociatedBranch = ./CleanupAssociatedBranch.dhall
+
 let Workflow = CI.Workflow
 
 let Step = Workflow.Step
@@ -11,8 +13,6 @@ let requireCleanWorkspace =
       //  { name = Some "Require clean workspace" }
 
 let botCommitterEnv = Script.committerEnv Script.githubActionsBot
-
-let CleanupAssociatedBranch = ./CleanupAssociatedBranch.dhall
 
 let Checkout =
       { Type = { fetchDepth : Natural, token : Optional Text }
